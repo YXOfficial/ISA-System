@@ -999,7 +999,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(c)
 	if c:split(' ')[1] == '.orbit' then
 		for _, v in pairs(mov) do
 			chr = ftp(c:split(' ')[2])[1].Character;
-			v.Parent = ftp(c:split(' ')[2])[1].Character.HumanoidRootPart;
+			v.Parent = ftp(c:split(' ')[2])[1].Character.Torso;
 		end
 	end
 	if c:split(' ')[1] == '.speed' then
