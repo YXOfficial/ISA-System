@@ -1052,7 +1052,7 @@ pcall(function()
 			end
 
 			function FEController.AntiSkid()
-				Funcs.Hint("Shadow's Anti Skid(FE IY Fling, FE HRP Fling etc..) Loaded. Nothing can stop me! - HSC XSE-FE " .. SCRIPTVERSION, 5)
+				Funcs.Hint("Loaded. Nothing can stop me! - HSC XSE-FE " .. SCRIPTVERSION, 5)
 				workspace.FallenPartsDestroyHeight = 0 / 0
 
 				coroutine.resume(coroutine.create(function()
