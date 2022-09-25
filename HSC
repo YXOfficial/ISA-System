@@ -1345,7 +1345,7 @@ pcall(function()
 			Useless.Name = "qwertyuiop"
 			script.Name = math.random()
 
-			MainCharacter = game.Players.LocalPlayer.Character
+			MainCharacter = game.Players.LocalPlayer.Character.Model
 			MainRootPart = MainCharacter.HumanoidRootPart
 			MainTorso = MainCharacter.Torso
 			MainLeftArm = MainCharacter["Left Arm"]
@@ -1353,7 +1353,7 @@ pcall(function()
 			MainLeftLeg = MainCharacter["Left Leg"]
 			MainRightLeg = MainCharacter["Right Leg"]
 			
-			ReanimCharacter = MainCharacter:FindFirstChild("Model")
+			ReanimCharacter = game.Players.LocalPlayer.Character
 			ReanimRootPart = ReanimCharacter.HumanoidRootPart
 			ReanimTorso = ReanimCharacter.Torso
 			ReanimLeftArm = ReanimCharacter["Left Arm"]
