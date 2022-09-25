@@ -1353,7 +1353,7 @@ pcall(function()
 			MainLeftLeg = MainCharacter["Left Leg"]
 			MainRightLeg = MainCharacter["Right Leg"]
 			
-			ReanimCharacter = game.Players.LocalPlayer.Character.Model
+			ReanimCharacter = game.Players.LocalPlayer.Character
 			ReanimRootPart = ReanimCharacter.HumanoidRootPart
 			ReanimTorso = ReanimCharacter.Torso
 			ReanimLeftArm = ReanimCharacter["Left Arm"]
