@@ -1882,7 +1882,7 @@ end)
 		local CloneCharacter = Clone_Character:Clone()
 		CloneCharacter.Parent = CloneCharacterWorldModel
 		CloneCharacter.Name = CloneCharacterName
-		CloneCharacter.Animate:Destroy()
+		--CloneCharacter.Animate:Destroy()
 		CloneCharacter.Humanoid.Animator:Destroy()
 		CloneRootPart = CloneCharacter.HumanoidRootPart
 		CloneTorso = CloneCharacter.Torso
