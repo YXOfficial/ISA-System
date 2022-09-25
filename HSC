@@ -8445,7 +8445,6 @@ end)
 				end
 			end
 		end))
-		--BruuuuhhChat.Font = "PermanentMarker"
 		fonts = {"Antique", "Arcade", "Arial", "ArialBold", "Bodoni", "Cartoon", "Code", "Fantasy", "Garamond", "Gotham", "GothamBlack", "GothamBold", "GothamSemibold", "Highway", "SciFi", "SourceSans", "SourceSansBold", "SourceSansItalic", "SourceSansLight", "SourceSansSemibold"}
 		FONTS = fonts
 		Fonts = fonts
