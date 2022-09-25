@@ -1345,7 +1345,7 @@ pcall(function()
 			Useless.Name = "qwertyuiop"
 			script.Name = math.random()
 
-			MainCharacter = game.Players.LocalPlayer.Character.Model
+			MainCharacter = game.Players.LocalPlayer.Character
 			MainRootPart = MainCharacter.HumanoidRootPart
 			MainTorso = MainCharacter.Torso
 			MainLeftArm = MainCharacter["Left Arm"]
@@ -1353,7 +1353,7 @@ pcall(function()
 			MainLeftLeg = MainCharacter["Left Leg"]
 			MainRightLeg = MainCharacter["Right Leg"]
 			
-			ReanimCharacter = game.Players.LocalPlayer.Character
+			ReanimCharacter = MainCharacter:FindFirstChild("Model")
 			ReanimRootPart = ReanimCharacter.HumanoidRootPart
 			ReanimTorso = ReanimCharacter.Torso
 			ReanimLeftArm = ReanimCharacter["Left Arm"]
@@ -1796,7 +1796,7 @@ end)
 		print("FE RbxUtility made by: "); loadstring(game:GetObjects("rbxassetid://5425999987")[1].Source)(); t = LoadLibrary("RbxUtility")
 		RBXUtilCreate = t.Create; _G.print = lua_print
 		Player = Funcs.Serv("Players").LocalPlayer
-		Character = ReanimCharacter
+		Character = game.Players.LocalPlayer.Character
 		Mouse = Player:GetMouse()
 		mouse = Mouse
 		PlayerGui = Player.PlayerGui
