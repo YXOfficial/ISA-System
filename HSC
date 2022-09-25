@@ -1796,7 +1796,7 @@ end)
 		print("FE RbxUtility made by: "); loadstring(game:GetObjects("rbxassetid://5425999987")[1].Source)(); t = LoadLibrary("RbxUtility")
 		RBXUtilCreate = t.Create; _G.print = lua_print
 		Player = Funcs.Serv("Players").LocalPlayer
-		Character = game.Players.LocalPlayer.Character.Model
+		Character = game.Players.LocalPlayer.Character
 		Mouse = Player:GetMouse()
 		mouse = Mouse
 		PlayerGui = Player.PlayerGui
