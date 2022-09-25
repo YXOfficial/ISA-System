@@ -31,11 +31,11 @@ do
 	if _G.ScriptCooldown == true then error("Try execute script later!") end
 end; _G.ScriptCooldown = true
 _G.ScriptSettings = {
-	Auto_Chat_Enabled = false, 
+	Auto_Chat_Enabled = true, 
 	Fling_Players_On_Chat = false,
 	Fling_On_Intro = false,
 	Always_Fling_Players = false,
-	HRP_Position_On_Sky = true
+	HRP_Position_On_Sky = false
 }
 
 pcall(function()
@@ -1052,7 +1052,7 @@ pcall(function()
 			end
 
 			function FEController.AntiSkid()
-				Funcs.Hint("Loaded. Nothing can stop me! - HSC XSE-FE " .. SCRIPTVERSION, 5)
+				Funcs.Hint("Shadow's Anti Skid(FE IY Fling, FE HRP Fling etc..) Loaded. Nothing can stop me! - HSC XSE-FE " .. SCRIPTVERSION, 5)
 				workspace.FallenPartsDestroyHeight = 0 / 0
 
 				coroutine.resume(coroutine.create(function()
@@ -1329,6 +1329,7 @@ pcall(function()
 			
 			wait(0.8)
 			
+			FEController.Reanimate("death") -- loadstring(game:GetObjects("rbxassetid://5325226148")[1].Source)()
 			_G.REANIMATE_DONE = true
 			
 			wait(.1)
@@ -1345,7 +1346,7 @@ pcall(function()
 			Useless.Name = "qwertyuiop"
 			script.Name = math.random()
 
-			MainCharacter = game.Players.LocalPlayer.Character
+			MainCharacter = workspace[Plr.Name]
 			MainRootPart = MainCharacter.HumanoidRootPart
 			MainTorso = MainCharacter.Torso
 			MainLeftArm = MainCharacter["Left Arm"]
@@ -1353,7 +1354,7 @@ pcall(function()
 			MainLeftLeg = MainCharacter["Left Leg"]
 			MainRightLeg = MainCharacter["Right Leg"]
 			
-			ReanimCharacter = MainCharacter:FindFirstChild("Model")
+			ReanimCharacter = workspace[CloneCharacterName]
 			ReanimRootPart = ReanimCharacter.HumanoidRootPart
 			ReanimTorso = ReanimCharacter.Torso
 			ReanimLeftArm = ReanimCharacter["Left Arm"]
@@ -1796,7 +1797,7 @@ end)
 		print("FE RbxUtility made by: "); loadstring(game:GetObjects("rbxassetid://5425999987")[1].Source)(); t = LoadLibrary("RbxUtility")
 		RBXUtilCreate = t.Create; _G.print = lua_print
 		Player = Funcs.Serv("Players").LocalPlayer
-		Character = game.Players.LocalPlayer.Character
+		Character = ReanimCharacter
 		Mouse = Player:GetMouse()
 		mouse = Mouse
 		PlayerGui = Player.PlayerGui
@@ -8444,7 +8445,7 @@ end)
 				end
 			end
 		end))
-		--BruuuuhhChat.Font = "PermanentMarker"
+		BruuuuhhChat.Font = "PermanentMarker"
 		fonts = {"Antique", "Arcade", "Arial", "ArialBold", "Bodoni", "Cartoon", "Code", "Fantasy", "Garamond", "Gotham", "GothamBlack", "GothamBold", "GothamSemibold", "Highway", "SciFi", "SourceSans", "SourceSansBold", "SourceSansItalic", "SourceSansLight", "SourceSansSemibold"}
 		FONTS = fonts
 		Fonts = fonts
@@ -9420,8 +9421,8 @@ end)
 		end
 
 		function Funcs.USLCannonRemover()
-			Funcs.chatfunc("Bugged/attempted to bug all running Anti Cheat scripts.", false, true)
-			Funcs.warnedpeople("Bugged/attempted to bug all running Anti Cheat scripts.")
+			Funcs.chatfunc("Bugged/attempted to bug all running Lightning Cannon scripts.", false, true)
+			Funcs.warnedpeople("Bugged/attempted to bug all running Lightning Cannon scripts.")
 
 			coroutine.resume(coroutine.create(function()
 				for i, v in pairs(Plrs:GetChildren()) do
