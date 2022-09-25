@@ -1822,7 +1822,7 @@ end)
 		LeftShoulder = Torso["Left Shoulder"]
 		RightHip = Torso["Right Hip"]
 		LeftHip = Torso["Left Hip"]
-		Character.Animate.Parent = nil
+		--Character.Animate.Parent = nil
 		Mouse.TargetFilter = Character
 		CRootPart.Parent = Character
 		CRootPart.Name = "CHumanoidRootPart"
