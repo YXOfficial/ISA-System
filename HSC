@@ -8445,6 +8445,7 @@ end)
 				end
 			end
 		end))
+		--BruuuuhhChat.Font = "PermanentMarker"
 		fonts = {"Antique", "Arcade", "Arial", "ArialBold", "Bodoni", "Cartoon", "Code", "Fantasy", "Garamond", "Gotham", "GothamBlack", "GothamBold", "GothamSemibold", "Highway", "SciFi", "SourceSans", "SourceSansBold", "SourceSansItalic", "SourceSansLight", "SourceSansSemibold"}
 		FONTS = fonts
 		Fonts = fonts
@@ -9420,8 +9421,8 @@ end)
 		end
 
 		function Funcs.USLCannonRemover()
-			Funcs.chatfunc("Bugged/attempted to bug all running Lightning Cannon scripts.", false, true)
-			Funcs.warnedpeople("Bugged/attempted to bug all running Lightning Cannon scripts.")
+			Funcs.chatfunc("Bugged/attempted to bug all running Anti Cheat scripts.", false, true)
+			Funcs.warnedpeople("Bugged/attempted to bug all running Anti Cheat scripts.")
 
 			coroutine.resume(coroutine.create(function()
 				for i, v in pairs(Plrs:GetChildren()) do
