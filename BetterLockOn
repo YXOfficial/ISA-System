@@ -1,0 +1,435 @@
+local script = game:GetObjects("rbxassetid://11084075411")[1]
+script.LockOnScript.Parent = game:GetService("Players").LocalPlayer.Character
+local script = game.Players.LocalPlayer.Character.LockOnScript
+local v4 = game:GetService("Players").LocalPlayer
+local v6 = v4:WaitForChild("PlayerData")
+local v8 = v4:GetMouse()
+local v15 = require(game:GetService("ReplicatedStorage").ClientModules.MainModule)
+local v16 = v4.Character
+if v16 then
+	v16 = v4.CharacterAdded
+	local v17 = v16:Wait()
+end
+v8.TargetFilter = workspace.Map.IgnoreTab
+local v19 = v17:WaitForChild("HumanoidRootPart")
+local v21 = v17:WaitForChild("Humanoid")
+local v23 = workspace.CurrentCamera
+v23.CameraType = "Custom"
+local v25 = game:GetService("UserInputService")
+local v28 = script:WaitForChild("disableCamera")
+_G.RootPartFollow = true
+_G.Locked = false
+local v32 = script:WaitForChild("LockOn")
+local v33 = OverlapParams.new()
+local v34 = {}
+v34[1] = v17
+v33.FilterType = Enum.RaycastFilterType.Blacklist
+local function Lerp_1(p1, p2, p3)
+	return p1 + p2 - p1 * p3
+end
+v25.InputBegan:Connect(function(p4, p5)
+	if p5 then
+		local v43 = p4.UserInputType
+		local v44 = Enum.UserInputType.MouseButton3
+		if v43 ~= v44 then
+			v43 = p4.KeyCode
+			v44 = Enum.KeyCode.L
+			if v43 ~= v44 then
+				v43 = p4.KeyCode
+				v44 = Enum.KeyCode.ButtonL3
+				if v43 == v44 then
+					v43 = v25
+					local v47 = v43:IsGamepadButtonDown(Enum.UserInputType.Gamepad1, Enum.KeyCode.ButtonL2)
+					if v47 then
+						v44 = v32
+						v47 = v44.Value
+						if v47 then
+							v47 = nil
+							local v48 = v8
+							v44 = v48.Target
+							if not v44 then
+								v48 = v8.Target
+								v44 = v48.Parent
+								local v50 = v44:FindFirstChildOfClass("Humanoid")
+								if v50 then
+									v48 = v8.Target.Parent
+									v50 = v48.Parent
+									local v53 = v50:FindFirstChildOfClass("Humanoid")
+								end
+								if not v53 then
+									v47 = v53.Parent
+								end
+							end
+							if v47 then
+								v53 = workspace
+								v51 = v8
+								v51 = Vector3.new
+								v48 = pairs
+								local v62, v63, v64 = v48(v53:GetPartBoundsInBox(v51.Hit, v51(3.5, 3.5, 3.5), v33))
+								for v69, v66 in v62, v63, v64 do
+									local v68 = v66.Parent:FindFirstChildOfClass("Humanoid")
+									v47 = v66.Parent
+								end
+								if not v68 then
+								end
+							end
+							if not v47 then
+								v62 = v47.Parent
+								v60 = v62.Name
+								v60 = v32
+								v60.Value = v47
+								v60 = _G
+								v62 = true
+								v60.Locked = v62
+								v63 = v6
+								v62 = v63.LockOnType
+								v60 = v62.Value
+								v60 = v23
+								v62 = Enum.CameraType.Scriptable
+								v60.CameraType = v62
+								return 
+									v60 = v25
+								v62 = Enum.MouseBehavior.LockCenter
+								v60.MouseBehavior = v62
+								return 
+									v60 = v32
+								v47 = v60.Value
+								if not v47 then
+									v60 = v32
+									v47 = v60.Value
+									v62 = "HumanoidRootPart"
+									local v70 = v47:FindFirstChild(v62)
+									if not v70 then
+										v70 = v32
+										v60 = nil
+										v70.Value = v60
+										v70 = _G
+										v60 = false
+										v70.Locked = v60
+										v60 = v6.LockOnType
+										v70 = v60.Value
+										v70 = v23
+										v60 = Enum.CameraType.Custom
+										v70.CameraType = v60
+										return 
+											v70 = v25
+										v60 = Enum.MouseBehavior.Default
+										v70.MouseBehavior = v60
+									end
+								end
+							end
+							return 
+						end
+					end
+				end
+			end
+		end
+	end
+end)
+(v17:GetAttributeChangedSignal("InvertCamera")):Connect(function()
+	local v80 = v17:GetAttribute("InvertCamera")
+	if not v80 then
+		v80 = v6.LockOnType.Value
+		v80 = v80 ^ "InvertCamera"
+		local v85 = v32
+		v80 = v85.Value
+		if not v80 then
+			v80 = v23
+			v85 = Enum.CameraType.Scriptable
+			v80.CameraType = v85
+			return 
+		end
+	end
+	v81 = "InvertCamera"
+	local v83 = v17:GetAttribute(v81)
+	if v83 then
+		v82 = v6.LockOnType
+		v83 = v82.Value
+		v83 = v83 ^ "InvertCamera"
+		v82 = v32
+		v83 = v82.Value
+		if not v83 then
+			v83 = v23
+			v82 = Enum.CameraType.Custom
+			v83.CameraType = v82
+		end
+	end
+end)
+((script:WaitForChild("LockAlt")):GetAttributeChangedSignal("Value")):Connect(function()
+	local v93 = script
+	local v94 = v93.LockAlt
+	local v95 = v94.Value
+	if not v95 then
+		v95 = task.wait
+		v95()
+		v94 = workspace
+		v94 = "Custom"
+		v94.CurrentCamera.CameraType = v94
+		v94 = workspace
+		v93 = script.LockAlt.Value
+		v94 = v93.Humanoid
+		v94.CurrentCamera.CameraSubject = v94
+		v94 = Enum.CameraType.Custom
+		v23.CameraType = v94
+		v94 = Enum.MouseBehavior.Default
+		v25.MouseBehavior = v94
+		return 
+	end
+	v96 = task.wait
+	v96()
+	workspace.CurrentCamera.CameraType = "Custom"
+	workspace.CurrentCamera.CameraSubject = v21
+end)
+((script:WaitForChild("UnLock")):GetAttributeChangedSignal("Value")):Connect(function()
+	local v115 = script.UnLock
+	local v116 = v115.Value
+	if not v116 then
+		v115 = script
+		v116 = v115.LockOn
+		v115 = nil
+		v116.Value = v115
+		v116 = _G
+		v115 = false
+		v116.Locked = v115
+		v116 = v23
+		v115 = Enum.CameraType.Custom
+		v116.CameraType = v115
+	end
+end)
+game:GetService("RunService").RenderStepped:Connect(function()
+	local v120 = v32
+	local v121 = v120.Value
+	if not v121 then
+		v120 = v4
+		v121 = v120.Character
+		if not v121 then
+			v120 = v32
+			v121 = v120.Value
+			local v123 = v121:FindFirstChild("HumanoidRootPart")
+			if not v123 then
+				local v124 = script
+				v120 = v124.UnLock
+				v123 = v120.Value
+				if v123 then
+					v124 = script
+					v120 = v124.Cutscene
+					v123 = v120.Value
+					if v123 then
+						v124 = script
+						v120 = v124.UseMouse
+						v123 = v120.Value
+						if v123 then
+							v123 = v25
+							v120 = false
+							v123.MouseIconEnabled = v120
+						else
+							v123 = v25
+							v120 = true
+							v123.MouseIconEnabled = v120
+						end
+						v124 = v19.Position
+						v120 = v124 - v32.Value:FindFirstChild("HumanoidRootPart").Position
+						v123 = v120.magnitude
+						v120 = CFrame.new
+						v124 = v19.CFrame.p + Vector3.new(0, 1, 0)
+						local v133 = v120(v124)
+						local v139 = v19.Position + v32.Value:FindFirstChild("HumanoidRootPart").Position / 2
+						local v206 = v123
+						local v207 = 20
+						if v123 > v207 then
+							v206 = 60
+						end
+						v207 = 20
+						if v207 >= v123 then
+							v206 = 20
+						end
+						local v209 = v19.Position.Y
+						local v141 = v32
+						local v142 = v141.Value
+						local v143 = v142.HumanoidRootPart
+						local v210 = v143.Position
+						v207 = v209 - v210.Y / 2
+						local v213 = 0
+						if v213 > v207 then
+							v207 = -v207
+						end
+						v213 = v17
+						local v144 = v213:GetAttribute("InvertCamera")
+						if v144 then
+							v144 = v23
+							v209 = v23.CFrame
+							v210 = CFrame.new
+							v141 = v133 + v23.CFrame.rightVector * v206 / 5.5 + v19.Position.Y - v32.Value.HumanoidRootPart.Position.Y / 10 - v23.CFrame.lookVector * 10
+							v142 = v141 - CFrame.new(v19.Position, Vector3.new(v32.Value.HumanoidRootPart.Position.X, v19.Position.Y, v32.Value.HumanoidRootPart.Position.Z)).lookVector * 5 + v207
+							v143 = v142.Position
+							v142 = v139
+							v144.CFrame = v209:Lerp(v210(v143, v142), 0.2)
+						else
+							v144 = v23
+							v145 = v23
+							v163 = v145.CFrame
+							v160 = v23.CFrame.rightVector
+							v154 = v19
+							v149 = v154.Position
+							v150 = v149.Y
+							v152 = v32.Value
+							v153 = v152.HumanoidRootPart
+							v154 = v153.Position
+							v149 = v154.Y
+							v159 = v160 * v206 / 5.5 + v150 - v149 / 10
+							v157 = v133 + v159
+							v160 = v23.CFrame.lookVector
+							v159 = v160 * 10
+							v158 = v157 - v159
+							v160 = CFrame.new
+							v154 = v32
+							v149 = v154.Value
+							v150 = v149.HumanoidRootPart
+							v149 = v19
+							v150 = v149.Position
+							v152 = v32
+							v153 = v152.Value
+							v154 = v153.HumanoidRootPart
+							v149 = v154.Position
+							v150 = v149.Z
+							v159 = v160(v19.Position, Vector3.new(v150.Position.X, v150.Y, v150)).lookVector
+							v157 = v159 * 5 + v207
+							v141 = v158 - v157
+							v141 = v139
+							v158 = 0
+							v157 = 3.1415926535898
+							v144.CFrame = v163:Lerp(CFrame.new(v141.Position, v141) * CFrame.Angles(0, v158, v157), 0.2)
+						end
+						v178 = v32
+						local v255 = v178.Value
+						if not v255 then
+							v178 = v32
+							v255 = v178.Value
+							v145 = "HumanoidRootPart"
+							local v179 = v255:FindFirstChild(v145)
+							if not v179 then
+								v178 = v15
+								v179 = v178.checkIfHit
+								local v180 = v179()
+								if v180 then
+									v178 = _G
+									v180 = v178.RootPartFollow
+									if v180 then
+										local v181 = script
+										v178 = v181.Aim
+										v180 = v178.Value
+										if not v180 then
+											v178 = v15
+											v180 = v178.checkIfHit
+											local v182 = v180()
+											if v182 then
+												v178 = _G
+												v182 = v178.RootPartFollow
+												if not v182 then
+													v178 = v32
+													v182 = v178.Value
+													v181 = "HumanoidRootPart"
+													local v183 = v182:FindFirstChild(v181)
+													v178 = v19
+													v176 = v183.Position.X
+													v178.CFrame = CFrame.new(v19.Position, Vector3.new(v176, v19.Position.Y, v183.Position.Z))
+												end
+											end
+										end
+										v190 = v32
+										v178 = v190.Value
+										v183 = v178.Parent
+										if not v183 then
+											v178 = v32
+											v183 = v178.Value
+											v190 = workspace
+											local v191 = v183:IsDescendantOf(v190)
+											if v191 then
+												v191 = v32
+												v178 = nil
+												v191.Value = v178
+												v191 = _G
+												v178 = false
+												v191.Locked = v178
+												v191 = v28
+												v178 = false
+												v191.Value = v178
+												v178 = v6.LockOnType
+												v191 = v178.Value
+												v191 = v23
+												v178 = Enum.CameraType.Custom
+												v191.CameraType = v178
+												v191 = v25
+												v178 = Enum.MouseBehavior.Default
+												v191.MouseBehavior = v178
+												v191 = v25
+												v178 = true
+												v191.MouseIconEnabled = v178
+												v133 = _G
+												v123 = v133.RootPartFollow
+												if not v123 then
+													v123 = v21
+													v133 = true
+													v123.AutoRotate = v133
+												else
+													v123 = v21
+													v133 = false
+													v123.AutoRotate = v133
+												end
+												v133 = v32
+												v123 = v133.Value
+												if not v123 then
+													v133 = v32
+													v123 = v133.Value
+													v139 = "HumanoidRootPart"
+													local v193 = v123:FindFirstChild(v139)
+													if v193 then
+														v193 = v32
+														v133 = nil
+														v193.Value = v133
+														v133 = v6.LockOnType
+														v193 = v133.Value
+														v193 = v23
+														v133 = Enum.CameraType.Custom
+														v193.CameraType = v133
+														v193 = v25
+														v133 = Enum.MouseBehavior.Default
+														v193.MouseBehavior = v133
+														v193 = _G
+														v133 = false
+														v193.Locked = v133
+													end
+												end
+												v193 = v25
+												v133 = true
+												v193.MouseIconEnabled = v133
+											end
+											v133 = v32
+											v193 = v133.Value
+											if not v193 then
+												v133 = v32
+												v193 = v133.Value
+												v194 = "HumanoidRootPart"
+												local v195 = v193:FindFirstChild(v194)
+												if not v195 then
+													v133 = script.UnLock
+													v195 = v133.Value
+													if v195 then
+														v195 = v21
+														v133 = false
+														v195.AutoRotate = v133
+													end
+												end
+											end
+											return 
+										end
+									end
+								end
+							end
+						end
+					end
+				end
+			end
+		end
+	end
+end)
